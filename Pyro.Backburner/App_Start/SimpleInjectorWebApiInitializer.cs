@@ -11,7 +11,8 @@ namespace Pyro.Backburner.App_Start
   using Pyro.Common.FhirOperation.Compartment;
   using Pyro.Common.FhirOperation.ConnectathonAnswer; 
   using Pyro.Common.FhirOperation.IhiSearch;
-  using Pyro.Common.FhirOperation.ResourceReport;
+    using Pyro.Common.FhirOperation.ProcessMessage;
+    using Pyro.Common.FhirOperation.ResourceReport;
   using Pyro.Common.FhirOperation.ServerSearchParameter;
   using Pyro.Common.FhirOperation.Validate;
   using Pyro.Common.Global;
@@ -240,6 +241,7 @@ namespace Pyro.Backburner.App_Start
       container.Register<IConnectathonAnswerOperation, ConnectathonAnswerOperation>(Lifestyle.Scoped);
       container.Register<IIHISearchOrValidateOperation, IHISearchOrValidateOperation>(Lifestyle.Scoped);
       container.Register<ICompartmentOperation, CompartmentOperation>(Lifestyle.Scoped);
+      container.Register<IProcessMessageOperation, ProcessMessageOperation>(Lifestyle.Scoped);
 
       //Scoped: Cache
       container.Register<IPrimaryServiceRootCache, PrimaryServiceRootCache>(Lifestyle.Scoped);

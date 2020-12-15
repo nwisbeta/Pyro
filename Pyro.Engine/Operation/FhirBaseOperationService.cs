@@ -14,6 +14,7 @@ using Pyro.Common.FhirOperation.ServerSearchParameter;
 using Pyro.Common.FhirOperation.ConnectathonAnswer;
 using Pyro.Common.FhirOperation.ResourceReport;
 using Pyro.Common.Service.SearchParameters;
+using Pyro.Common.FhirOperation.ProcessMessage;
 
 namespace Pyro.Engine.Operation
 {
@@ -108,6 +109,11 @@ namespace Pyro.Engine.Operation
             IResourceReportOperation ServerResourceReportService = ICommonFactory.CreateResourceReportOperation();
             return ServerResourceReportService.Process(RequestMeta.SearchParameterGeneric);
           }
+        case FhirOperationEnum.OperationType.ProcessMessage:
+            {
+                IProcessMessageOperation ProcessMessageService = ICommonFactory.CreateProcessMessageOperation();
+                return ProcessMessageService.Process(RequestMeta.PyroRequestUri, RequestMeta.SearchParameterGeneric, Resource);
+            }
         default:
           throw new System.ComponentModel.InvalidEnumArgumentException(OperationClass.Type.GetPyroLiteral(), (int)OperationClass.Type, typeof(FhirOperationEnum.OperationType));
       }
