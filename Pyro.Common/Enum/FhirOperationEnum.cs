@@ -38,7 +38,7 @@ namespace Pyro.Common.Enum
       xSetCompartmentActive,
       [EnumLiteral("x-set-compartment-inactive")]
       xSetCompartmentInActive,
-      [EnumLiteral("x-set-compartment-inactive")]
+      [EnumLiteral("process-message")]
       ProcessMessage,
 
     }
