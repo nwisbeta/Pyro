@@ -39,7 +39,7 @@ namespace Pyro.Common.FhirOperation.ProcessMessage
             }
             else if (bundle.Type != Bundle.BundleType.Message)
             {
-                IssueList.Add(Pyro.Common.Tools.FhirOperationOutcomeSupport.CreateIssue(OperationOutcome.IssueSeverity.Error, OperationOutcome.IssueType.Invalid, $"The ${_OperationName} can only accept Bundle resources of Bundle.type = 'Transaction'. Type found was {bundle.Type.ToString()}"));
+                IssueList.Add(Pyro.Common.Tools.FhirOperationOutcomeSupport.CreateIssue(OperationOutcome.IssueSeverity.Error, OperationOutcome.IssueType.Invalid, $"The ${_OperationName} can only accept Bundle resources of Bundle.type = 'message'. Type found was {bundle.Type.ToString()}"));
             }
             else
             {
